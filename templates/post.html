@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="post-header">
+            <div class="post-title">{{ post.title }}</div>
+            <div class="post-details">Posted by {{ post.author }} | {{ post.date.strftime("%Y-%m-%d %H:%M") }}</div>
+        </div>
+        <div class="post-content">
+            {{ post.content }}
+        </div>
+        <div class="button-group">
+            <a href="/edit/{{ post.post_id }}" class="button button-green">Edit Post</a>
+            <a href="/" class="button button-green">Back to Index</a>
+            <form action="/delete/{{ post.post_id }}" method="post" style="display: inline;">
+                <button type="submit" class="button button-red">Delete Post</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
